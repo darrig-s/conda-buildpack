@@ -14,6 +14,7 @@ conda install nomkl
 
 if [ -f conda-requirements.txt ]; then
     puts-step "Installing dependencies using Conda"
+    conda install --file conda-requirements.txt --yes | indent
 fi
 
 if [ -f requirements.txt ]; then
@@ -22,4 +23,5 @@ if [ -f requirements.txt ]; then
 fi
 
 # Clean up the installation environment .
+puts-step "Cleaning..."
 conda clean -pt --yes > /dev/null
